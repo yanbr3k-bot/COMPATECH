@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre - CompTech</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .sobre-container {
+      width: 100%;
+      min-height: calc(100vh - 160px);
+      background: linear-gradient(180deg, rgba(1, 8, 23, 0.92), rgba(2, 27, 90, 0.94));
+      padding: 60px 40px;
+    }
+
+    .sobre-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      color: #e2e8f0;
+    }
+
+    .sobre-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .sobre-header h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .sobre-header p {
+      font-size: 18px;
+      color: #c7d3ff;
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-bottom: 50px;
+      padding: 30px;
+      background: rgba(10, 20, 50, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .section h2 {
+      font-size: 28px;
+      color: #66b7ff;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .section p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #d6dfff;
+      margin-bottom: 15px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .feature-card {
+      padding: 25px;
+      background: rgba(0, 119, 255, 0.1);
+      border: 1px solid rgba(125, 211, 252, 0.3);
+      border-radius: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 119, 255, 0.2);
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      color: #7dd3fc;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: #b0bff0;
+      margin: 0;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .value-item {
+      padding: 20px;
+      background: rgba(125, 211, 252, 0.08);
+      border-left: 4px solid #0066ff;
+      border-radius: 8px;
+    }
+
+    .value-item h4 {
+      color: #7dd3fc;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .value-item p {
+      font-size: 14px;
+      color: #c7d3ff;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: #66b7ff;
+      font-weight: 600;
+    }
+
+    .cta-section {
+      text-align: center;
+      margin-top: 60px;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(37, 99, 255, 0.1));
+      border-radius: 20px;
+      border: 1px solid rgba(0, 102, 255, 0.2);
+    }
+
+    .cta-section h3 {
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 40px;
+      background: linear-gradient(90deg, #0057ff, #2575ff);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 111, 255, 0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 111, 255, 0.4);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: 800;
+      color: #66b7ff;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #b0bff0;
+      margin-top: 10px;
+    }
+
+    .user-area {
+      position: relative;
+    }
+
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 8px 15px;
+      background: rgba(0, 102, 255, 0.1);
+      border-radius: 14px;
+      border: 1px solid rgba(0, 102, 255, 0.3);
+    }
+
+    .user-menu #userName {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .logout-btn {
+      height: 28px;
+      padding: 0 12px;
+      border: none;
+      border-radius: 6px;
+      background: rgba(255, 59, 48, 0.8);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .logout-btn:hover {
+      background: rgba(255, 59, 48, 1);
+      transform: translateY(-1px);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .sobre-header h1 {
+        font-size: 32px;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .section h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- cabeçalho-->
+  <header class="header">
+    <div class="logo">
+      <img src="logooo.png" alt="CompTech logo" class="site-logo">
+      <div class="logo-text">
+        <h1>CompTech</h1>
+      </div>
+    </div>
+    <!-- dropdown do cabeçalho-->
+    <nav class="menu">
+      <div class="dropdown">
+        <button class="dropbtn" type="button">Comparar</button>
+        <div class="dropdown-content">
+          <a href="comparar/compararcelular/comparar.html">Celulares</a>
+          <a href="comparar/comparartv/comparartv.html">Televisões</a>
+          <div class="sub-dropdown">
+            <button class="sub-dropbtn" type="button">Hardwares</button>
+            <div class="sub-dropdown-content">
+              <a href="comparar/Hardwares/Placa de Mae/PlacaMae.html">Placa Mae</a>
+              <a href="comparar/Hardwares/Placa de Video/PC.html">Placa de Vídeo</a>
+              <a href="comparar/Hardwares/Processador/CPU.html">Processador</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <a href="home.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+
+    <div class="user-area">
+      <button class="login-btn" id="loginBtn" type="button">
+        Entrar
+      </button>
+      <div id="userMenu" class="user-menu hidden">
+        <span id="userName"></span>
+        <button class="logout-btn" onclick="logout()">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Seção Sobre -->
+  <div class="sobre-container">
+    <div class="sobre-content">
+      <!-- Header -->
+      <div class="sobre-header">
+        <h1>Sobre a CompTech</h1>
+        <p>Revolucionando a forma como você escolhe produtos de tecnologia</p>
+      </div>
+
+      <!-- Nossa Missão -->
+      <div class="section">
+        <h2>🎯 Nossa Missão</h2>
+        <p>
+          A <span class="highlight">CompTech</span> é uma plataforma inovadora dedicada a simplificar e democratizar o processo de escolha de produtos tecnológicos. Nossa missão é eliminar a confusão do mercado tech, oferecendo comparações justas, dados precisos e informações claras que ajudam você a tomar as melhores decisões de compra.
+        </p>
+        <p>
+          Acreditamos que todo consumidor merece acesso a informações confiáveis, sem influências comerciais ou propagandas enganosas. Na CompTech, você encontra tudo que precisa saber sobre os produtos que quer comparar.
+        </p>
+      </div>
+
+      <!-- O que oferecemos -->
+      <div class="section">
+        <h2>📱 O que Oferecemos</h2>
+        <p>Nossa plataforma oferece comparações detalhadas em diversas categorias de tecnologia:</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>📲 Celulares</h3>
+            <p>Compare especificações, preços, câmeras, baterias e avaliações de diversos modelos.</p>
+          </div>
+          <div class="feature-card">
+            <h3>📺 Televisões</h3>
+            <p>Encontre a TV perfeita analisando resolução, tamanho, tecnologia e preço.</p>
+          </div>
+          <div class="feature-card">
+            <h3>⚙️ Processadores</h3>
+            <p>Compare performance, núcleos, frequência e benchmarks de CPUs.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🎮 Placas de Vídeo</h3>
+            <p>Analise VRAM, arquitetura, desempenho em jogos e preço.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🖥️ Placas Mãe</h3>
+            <p>Explore compatibilidade, recursos, soquetes e especificações técnicas.</p>
+          </div>
+          <div class="feature-card">
+            <h3>E muito mais!</h3>
+            <p>Continuamos expandindo nossa base de produtos para cobrir todo o mercado tech.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nossos Valores -->
+      <div class="section">
+        <h2>💎 Nossos Valores</h2>
+        <p>A CompTech é construída sobre princípios fundamentais que guiam todas as nossas ações:</p>
+        <div class="values-grid">
+          <div class="value-item">
+            <h4>🔍 Transparência</h4>
+            <p>Informações claras, precisas e verificáveis sobre cada produto. Sem dados ocultos.</p>
+          </div>
+          <div class="value-item">
+            <h4>⚖️ Imparcialidade</h4>
+            <p>Comparações justas sem favoritismos comerciais ou influências de terceiros.</p>
+          </div>
+          <div class="value-item">
+            <h4>✅ Qualidade</h4>
+            <p>Dados atualizados constantemente e obtidos de fontes confiáveis e verificadas.</p>
+          </div>
+          <div class="value-item">
+            <h4>♿ Acessibilidade</h4>
+            <p>Plataforma intuitiva e fácil de usar para todos os usuários, independentemente de experiência.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Por que escolher CompTech -->
+      <div class="section">
+        <h2>✨ Por que Escolher a CompTech?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>📊 Dados Completos</h3>
+            <p>Acesso a especificações técnicas detalhadas, preços e avaliações em um só lugar.</p>
+          </div>
+          <div class="feature-card">
+            <h3>⚡ Comparação Rápida</h3>
+            <p>Visualize produtos lado a lado com apenas alguns cliques.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🔄 Atualização Contínua</h3>
+            <p>Nossa base de dados é atualizada regularmente com novos produtos e informações.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🎯 Foco no Usuário</h3>
+            <p>Design intuitivo pensado para facilitar sua busca e comparação.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🛡️ Confiabilidade</h3>
+            <p>Dados verificados e confiáveis de fontes respeitadas do mercado.</p>
+          </div>
+          <div class="feature-card">
+            <h3>💰 Economia de Tempo</h3>
+            <p>Encontre o produto perfeito em minutos, não horas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Estatísticas -->
+      <div class="section">
+        <h2>📈 Nossa Jornada</h2>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Categorias de Produtos</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">1000+</div>
+            <div class="stat-label">Produtos Comparáveis</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Imparcialidade Garantida</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <h3>Pronto para Começar?</h3>
+        <p style="color: #c7d3ff; margin-bottom: 25px;">Comece a comparar produtos agora e encontre exatamente o que você está procurando.</p>
+        <a href="home.html" class="cta-button">Voltar para Home</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+        <p class="comptech">© 2026 - CompTech</p>
+    </div>
+  </footer>
+
+  <script src="home.js"></script>
+  <script>
+    // Verificar se o usuário está logado
+    function checkLogin() {
+      const usuarioSalvo = localStorage.getItem("usuario");
+      const loginBtn = document.getElementById("loginBtn");
+      const userMenu = document.getElementById("userMenu");
+      const userName = document.getElementById("userName");
+
+      if(usuarioSalvo) {
+        loginBtn.classList.add("hidden");
+        userMenu.classList.remove("hidden");
+        userName.textContent = usuarioSalvo;
+      } else {
+        loginBtn.classList.remove("hidden");
+        userMenu.classList.add("hidden");
+        loginBtn.onclick = function() {
+          window.location.href = "../login/index.html";
+        };
+      }
+    }
+
+    // Fazer logout
+    function logout() {
+      localStorage.removeItem("usuario");
+      localStorage.removeItem("senha");
+      localStorage.removeItem("lembrar");
+      checkLogin();
+    }
+
+    // Verificar login ao carregar a página
+    document.addEventListener("DOMContentLoaded", checkLogin);
+  </script>
+
+</body>
+</html>

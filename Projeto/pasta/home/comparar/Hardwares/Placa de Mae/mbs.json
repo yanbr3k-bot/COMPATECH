@@ -1,0 +1,11 @@
+[
+  {"id":"mb1","nome":"ASUS ROG Strix X670E-F","brand":"ASUS","performance":92,"socket":"AM5","chipset":"X670E","max_ram":128,"slots":4,"m2_slots":4,"ports":18,"wifi":1,"formato":"ATX","preco":"R$ 3.200"},
+  {"id":"mb2","nome":"MSI MAG B650 Tomahawk","brand":"MSI","performance":84,"socket":"AM5","chipset":"B650","max_ram":128,"slots":4,"m2_slots":3,"ports":15,"wifi":0,"formato":"ATX","preco":"R$ 1.700"},
+  {"id":"mb3","nome":"Gigabyte Aorus X570 Elite","brand":"Gigabyte","performance":88,"socket":"AM4","chipset":"X570","max_ram":128,"slots":4,"m2_slots":3,"ports":17,"wifi":0,"formato":"ATX","preco":"R$ 1.900"},
+  {"id":"mb4","nome":"ASRock B760 Steel Legend","brand":"ASRock","performance":80,"socket":"LGA1700","chipset":"B760","max_ram":128,"slots":4,"m2_slots":2,"ports":16,"wifi":1,"formato":"ATX","preco":"R$ 1.350"},
+  {"id":"mb5","nome":"ASUS TUF Gaming B650-Plus","brand":"ASUS","performance":86,"socket":"AM5","chipset":"B650","max_ram":128,"slots":4,"m2_slots":3,"ports":16,"wifi":1,"formato":"ATX","preco":"R$ 1.650"},
+  {"id":"mb6","nome":"MSI MPG Z790 Carbon WiFi","brand":"MSI","performance":90,"socket":"LGA1700","chipset":"Z790","max_ram":128,"slots":5,"m2_slots":4,"ports":20,"wifi":1,"formato":"ATX","preco":"R$ 2.800"},
+  {"id":"mb7","nome":"Gigabyte B660 AORUS Pro","brand":"Gigabyte","performance":78,"socket":"LGA1700","chipset":"B660","max_ram":128,"slots":4,"m2_slots":3,"ports":16,"wifi":0,"formato":"ATX","preco":"R$ 1.250"},
+  {"id":"mb8","nome":"ASRock X670E Steel Legend","brand":"ASRock","performance":91,"socket":"AM5","chipset":"X670E","max_ram":128,"slots":4,"m2_slots":4,"ports":18,"wifi":1,"formato":"ATX","preco":"R$ 2.900"},
+  {"id":"mb9","nome":"MSI MAG B760 Tomahawk WiFi","brand":"MSI","performance":83,"socket":"LGA1700","chipset":"B760","max_ram":128,"slots":4,"m2_slots":3,"ports":17,"wifi":1,"formato":"ATX","preco":"R$ 1.800"}
+]

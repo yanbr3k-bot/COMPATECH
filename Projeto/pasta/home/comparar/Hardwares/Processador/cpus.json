@@ -1,0 +1,11 @@
+[
+  {"id":"cpu1","nome":"Intel Core i9-14900K","brand":"Intel","performance":95,"cores":24,"threads":32,"clock":5600,"boost":5900,"cache":36,"tdp":125,"arquitetura":"Raptor Lake","tipo":"Desktop","preco":"R$ 4.200"},
+  {"id":"cpu2","nome":"AMD Ryzen 9 7950X","brand":"AMD","performance":92,"cores":16,"threads":32,"clock":5100,"boost":5200,"cache":64,"tdp":170,"arquitetura":"Zen 4","tipo":"Desktop","preco":"R$ 3.900"},
+  {"id":"cpu3","nome":"Intel Core i5-14600K","brand":"Intel","performance":82,"cores":20,"threads":28,"clock":5300,"boost":5600,"cache":24,"tdp":125,"arquitetura":"Raptor Lake","tipo":"Desktop","preco":"R$ 1.600"},
+  {"id":"cpu4","nome":"AMD Ryzen 7 7800X3D","brand":"AMD","performance":88,"cores":8,"threads":16,"clock":4700,"boost":5100,"cache":64,"tdp":120,"arquitetura":"Zen 4","tipo":"Desktop","preco":"R$ 2.400"},
+  {"id":"cpu5","nome":"Intel Core i7-14700K","brand":"Intel","performance":89,"cores":20,"threads":28,"clock":5400,"boost":5800,"cache":30,"tdp":125,"arquitetura":"Raptor Lake","tipo":"Desktop","preco":"R$ 2.700"},
+  {"id":"cpu6","nome":"AMD Ryzen 5 7600X","brand":"AMD","performance":80,"cores":6,"threads":12,"clock":4700,"boost":5200,"cache":38,"tdp":105,"arquitetura":"Zen 4","tipo":"Desktop","preco":"R$ 1.450"},
+  {"id":"cpu7","nome":"Intel Core i3-13100F","brand":"Intel","performance":64,"cores":4,"threads":8,"clock":4300,"boost":4900,"cache":12,"tdp":60,"arquitetura":"Raptor Lake","tipo":"Desktop","preco":"R$ 700"},
+  {"id":"cpu8","nome":"AMD Ryzen 7 7700X","brand":"AMD","performance":86,"cores":8,"threads":16,"clock":5000,"boost":5600,"cache":32,"tdp":105,"arquitetura":"Zen 4","tipo":"Desktop","preco":"R$ 1.850"},
+  {"id":"cpu9","nome":"Intel Core i5-13600K","brand":"Intel","performance":86,"cores":14,"threads":20,"clock":5300,"boost":5700,"cache":24,"tdp":125,"arquitetura":"Raptor Lake","tipo":"Desktop","preco":"R$ 1.800"}
+]

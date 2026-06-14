@@ -1,0 +1,13 @@
+﻿[
+  {"id":"tv1","nome":"Samsung Crystal UHD 55\"","brand":"Samsung","tamanho":55,"resolucao":"4K","sistema":"Tizen","preco":2800},
+  {"id":"tv2","nome":"LG UHD 50\"","brand":"LG","tamanho":50,"resolucao":"4K","sistema":"webOS","preco":2500},
+  {"id":"tv3","nome":"Samsung QLED 65\"","brand":"Samsung","tamanho":65,"resolucao":"4K","sistema":"Tizen","preco":4200},
+  {"id":"tv4","nome":"TCL 55\" Google TV","brand":"TCL","tamanho":55,"resolucao":"4K","sistema":"Google TV","preco":2600},
+  {"id":"tv5","nome":"Philips 43\"","brand":"Philips","tamanho":43,"resolucao":"Full HD","sistema":"Saphi","preco":1800},
+  {"id":"tv6","nome":"Sony Bravia 55\" OLED","brand":"Sony","tamanho":55,"resolucao":"4K","sistema":"Google TV","preco":5200},
+  {"id":"tv7","nome":"LG OLED Evo 65\"","brand":"LG","tamanho":65,"resolucao":"4K","sistema":"webOS","preco":7600},
+  {"id":"tv8","nome":"Samsung QN90C 55\"","brand":"Samsung","tamanho":55,"resolucao":"4K","sistema":"Tizen","preco":5800},
+  {"id":"tv9","nome":"Philips Ambilight 58\"","brand":"Philips","tamanho":58,"resolucao":"4K","sistema":"Android TV","preco":4300},
+  {"id":"tv10","nome":"Hisense U8H 65\"","brand":"Hisense","tamanho":65,"resolucao":"4K","sistema":"Google TV","preco":4500},
+  {"id":"tv11","nome":"TCL 50\" Mini LED","brand":"TCL","tamanho":50,"resolucao":"4K","sistema":"Google TV","preco":3200}
+]

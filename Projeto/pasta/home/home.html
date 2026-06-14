@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CompTech</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="home.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+ <!-- cabeçalho-->
+  <header class="header">
+    <div class="logo">
+      <img src="logooo.png" alt="CompTech logo" class="site-logo">
+      <div class="logo-text">
+        <h1>CompTech</h1>
+      </div>
+    </div>
+<!--dorpdown do cabeçalho-->
+    <nav class="menu">
+      <div class="dropdown">
+        <button class="dropbtn" type="button">Comparar</button>
+        <div class="dropdown-content">
+          <a href="comparar/compararcelular/comparar.html">Celulares</a>
+          <a href="comparar/comparartv/comparartv.html">Televisões</a>
+          <div class="sub-dropdown">
+            <button class="sub-dropbtn" type="button">Hardwares</button>
+            <div class="sub-dropdown-content">
+              <a href="comparar/Hardwares/Placa de Mae/PlacaMae.html">Placa Mae</a>
+              <a href="comparar/Hardwares/Placa de Video/PC.html">Placa de Vídeo</a>
+              <a href="comparar/Hardwares/Processador/CPU.html">Processador</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <a href="sobre.html">Sobre</a>
+    </nav>
+
+    <div class="user-area">
+      <button class="login-btn" id="loginBtn" type="button">
+        Entrar
+      </button>
+      <div id="userMenu" class="user-menu hidden">
+        <span id="userName"></span>
+        <button class="logout-btn" onclick="logout()">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="left">
+        <h1>
+          COMPARE.<br>
+          ANALISE.<br>
+          <span>ESCOLHA CERTO.</span>
+        </h1>
+
+        <p>
+          Compare celulares, placas de vídeo, processadores
+          e muito mais. Veja especificações, preços e
+          avaliações lado a lado.
+        </p>
+        
+        <button type="button" onclick="location.href='comparar/compararcelular/comparar.html'">
+          Comece a comparar
+          <span>→</span>
+        </button>
+      </div>
+      <div class="right">
+        <img src="tudohome.png" alt="Produtos Tech">
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <div>
+        <p class="comptech">© 2026 - CompTech</p>
+    </div>
+  </footer>
+</body>
+</html>

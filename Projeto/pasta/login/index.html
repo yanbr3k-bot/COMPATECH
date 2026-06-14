@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <title>Projeto</title>
+
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div id="intro" class="screen">
+  <div>
+    <div class="logo">
+      <img src="logo.png">
+      <div class="aureola"></div>
+      <div class="estrela">✦</div>
+      <div class="estrela">✦</div>
+    </div>
+
+    <div class="bemvindo">
+      <span>B</span><span>e</span><span>m</span><span>-</span>
+      <span>v</span><span>i</span><span>n</span><span>d</span><span>o</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAN -->
+<div id="pan" class="screen hidden">
+  <div class="viewer">
+    <img src="logo separada1.png" class="panorama" id="panImg">
+  </div>
+</div>
+
+<!-- LOGIN / CADASTRO -->
+<div id="login" class="screen hidden">
+  <div id="loginBox" class="login-box">
+    <h2>Login</h2>
+    <input id="usuario" placeholder="Usuário">
+    <input id="senhaLogin" placeholder="Senha" type="password">
+    <label class="lembrar">
+  <input type="checkbox" id="lembrar">
+  Lembrar login
+  </label>
+    <button onclick="login()">Entrar</button>
+    <div id="erroLogin"></div>
+    <div class="link" onclick="mostrarCadastro()">Cadastrar</div>
+  </div>
+
+<div id="cadastroBox" class="cadastro-box hidden">
+    <h2>Cadastro</h2>
+    <input id="nome" placeholder="Nome">
+    <input id="email" placeholder="Email">
+    <input id="senhaCadastro" placeholder="Senha" type="password">
+    <input id="confirmarSenha" placeholder="Confirmar senha" type="password">
+    <input id="cpfCadastro" placeholder="CPF" maxlength="14"  oninput="mascaraCPF(this)">
+    <input id="cepCadastro" placeholder="CEP" onblur="buscarCEP()" type="text">
+    <input id="rua" placeholder="Rua" onblur="buscarCEP" type="text">
+    <input id="bairro" placeholder="Bairro" onblur="buscarCEP" type="text">
+    <input type="text" id="cidade" onblur="buscarCEP" placeholder="Cidade">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <div id="erroCadastro"></div>
+    <div class="link" onclick="mostrarLogin()">Voltar ao login</div>
+</div>
+
+<script>
+/* INTRO -> PAN -> LOGIN */
+const intro = document.getElementById("intro");
+const pan = document.getElementById("pan");
+const loginScreen = document.getElementById("login");
+const panImg = document.getElementById("panImg");
+const loginBg = document.querySelector("#login::before"); // efeito cinematográfico
+
+function switchScreen(from, to){
+  from.classList.add("hidden");
+  to.classList.remove("hidden");
+}
+
+setTimeout(() => {
+  intro.classList.add("zoom"); // zoom centralizado e desaparece
+}, 6000);
+
+setTimeout(() => {
+  switchScreen(intro, pan);
+  panImg.classList.add("pan-run");
+}, 8200);
+
+setTimeout(() => {
+  switchScreen(pan, loginScreen);
+  document.getElementById("loginBox").classList.add("show");
+  document.getElementById("login").style.setProperty('--bg-opacity','1'); // background aparece
+}, 9900);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+﻿[
+  {"id":"gpu1","nome":"NVIDIA RTX 4070","brand":"NVIDIA","performance":92,"vram":12,"memory_bus":192,"clock":2310,"cores":5888,"arquitetura":"Ada Lovelace","ray_tracing":1,"tdp":200,"tipo":"GDDR6X","preco":"R$ 3.900"},
+  {"id":"gpu2","nome":"AMD RX 7900 XT","brand":"AMD","performance":88,"vram":20,"memory_bus":320,"clock":2340,"cores":5376,"arquitetura":"RDNA 3","ray_tracing":1,"tdp":315,"tipo":"GDDR6","preco":"R$ 4.200"},
+  {"id":"gpu3","nome":"NVIDIA RTX 4060 Ti","brand":"NVIDIA","performance":78,"vram":8,"memory_bus":128,"clock":2310,"cores":4352,"arquitetura":"Ada Lovelace","ray_tracing":1,"tdp":160,"tipo":"GDDR6","preco":"R$ 2.600"},
+  {"id":"gpu4","nome":"AMD RX 7600","brand":"AMD","performance":70,"vram":8,"memory_bus":128,"clock":2400,"cores":2048,"arquitetura":"RDNA 3","ray_tracing":1,"tdp":165,"tipo":"GDDR6","preco":"R$ 1.900"},
+  {"id":"gpu5","nome":"NVIDIA RTX 4050","brand":"NVIDIA","performance":66,"vram":6,"memory_bus":128,"clock":1920,"cores":3072,"arquitetura":"Ada Lovelace","ray_tracing":1,"tdp":115,"tipo":"GDDR6","preco":"R$ 1.700"},
+  {"id":"gpu6","nome":"AMD RX 7700 XT","brand":"AMD","performance":82,"vram":12,"memory_bus":192,"clock":2350,"cores":5376,"arquitetura":"RDNA 3","ray_tracing":1,"tdp":230,"tipo":"GDDR6","preco":"R$ 3.000"},
+  {"id":"gpu7","nome":"NVIDIA RTX 3090","brand":"NVIDIA","performance":90,"vram":24,"memory_bus":384,"clock":1695,"cores":10496,"arquitetura":"Ampere","ray_tracing":1,"tdp":350,"tipo":"GDDR6X","preco":"R$ 6.800"},
+  {"id":"gpu8","nome":"AMD RX 6600 XT","brand":"AMD","performance":64,"vram":8,"memory_bus":128,"clock":2589,"cores":2048,"arquitetura":"RDNA 2","ray_tracing":0,"tdp":160,"tipo":"GDDR6","preco":"R$ 1.500"},
+  {"id":"gpu9","nome":"NVIDIA RTX 4080","brand":"NVIDIA","performance":95,"vram":16,"memory_bus":256,"clock":2200,"cores":9728,"arquitetura":"Ada Lovelace","ray_tracing":1,"tdp":320,"tipo":"GDDR6X","preco":"R$ 6.500"}
+]

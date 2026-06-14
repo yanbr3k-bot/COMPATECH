@@ -1,0 +1,17 @@
+[
+  {"id":"s24u","nome":"Galaxy S24 Ultra","brand":"Samsung","processador":"Snapdragon 8 Gen 3","performance":100,"ram":12,"armazenamento":256,"tela":"6.8 AMOLED 120Hz","hz":120,"bateria":5000,"carregamento":"45W","camera_principal":"200MP","sistema":"Android"},
+  {"id":"s24","nome":"Galaxy S24","brand":"Samsung","processador":"Exynos 2400","performance":90,"ram":8,"armazenamento":256,"tela":"6.2 AMOLED 120Hz","hz":120,"bateria":4000,"carregamento":"25W","camera_principal":"50MP","sistema":"Android"},
+  {"id":"s23","nome":"Galaxy S23","brand":"Samsung","processador":"Snapdragon 8 Gen 2","performance":88,"ram":8,"armazenamento":256,"tela":"6.1 AMOLED 120Hz","hz":120,"bateria":3900,"carregamento":"25W","camera_principal":"50MP","sistema":"Android"},
+
+  {"id":"i15pm","nome":"iPhone 15 Pro Max","brand":"Apple","processador":"A17 Pro","performance":99,"ram":8,"armazenamento":256,"tela":"6.7 OLED 120Hz","hz":120,"bateria":4441,"carregamento":"27W","camera_principal":"48MP","sistema":"iOS"},
+  {"id":"i15","nome":"iPhone 15","brand":"Apple","processador":"A16 Bionic","performance":88,"ram":6,"armazenamento":128,"tela":"6.1 OLED 60Hz","hz":60,"bateria":3349,"carregamento":"20W","camera_principal":"48MP","sistema":"iOS"},
+
+  {"id":"x14u","nome":"Xiaomi 14 Ultra","brand":"Xiaomi","processador":"Snapdragon 8 Gen 3","performance":100,"ram":16,"armazenamento":512,"tela":"6.73 AMOLED 120Hz","hz":120,"bateria":5000,"carregamento":"90W","camera_principal":"50MP","sistema":"Android"},
+  {"id":"x13","nome":"Xiaomi 13","brand":"Xiaomi","processador":"Snapdragon 8 Gen 2","performance":90,"ram":12,"armazenamento":256,"tela":"6.36 AMOLED 120Hz","hz":120,"bateria":4500,"carregamento":"67W","camera_principal":"50MP","sistema":"Android"},
+
+  {"id":"edge50u","nome":"Edge 50 Ultra","brand":"Motorola","processador":"Snapdragon 8s Gen 3","performance":94,"ram":12,"armazenamento":512,"tela":"6.7 OLED 144Hz","hz":144,"bateria":4500,"carregamento":"125W","camera_principal":"50MP","sistema":"Android"},
+  {"id":"g84","nome":"Moto G84","brand":"Motorola","processador":"Snapdragon 695","performance":40,"ram":8,"armazenamento":256,"tela":"6.5 OLED 120Hz","hz":120,"bateria":5000,"carregamento":"30W","camera_principal":"50MP","sistema":"Android"},
+
+  {"id":"gt5p","nome":"Realme GT 5 Pro","brand":"Realme","processador":"Snapdragon 8 Gen 3","performance":100,"ram":16,"armazenamento":512,"tela":"6.78 AMOLED 144Hz","hz":144,"bateria":5400,"carregamento":"100W","camera_principal":"50MP","sistema":"Android"},
+  {"id":"c67","nome":"Realme C67","brand":"Realme","processador":"Snapdragon 685","performance":35,"ram":8,"armazenamento":256,"tela":"6.7 LCD 90Hz","hz":90,"bateria":5000,"carregamento":"33W","camera_principal":"108MP","sistema":"Android"}
+]
