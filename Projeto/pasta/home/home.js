@@ -1,9 +1,32 @@
  // Verificar se o usuário está logado
+function lerArmazenamento(chave) {
+  try {
+    return localStorage.getItem(chave);
+  } catch (error) {
+    console.error(`Erro ao ler ${chave} no armazenamento:`, error);
+    return null;
+  }
+}
+
+function removerArmazenamento(chave) {
+  try {
+    localStorage.removeItem(chave);
+  } catch (error) {
+    console.error(`Erro ao remover ${chave} do armazenamento:`, error);
+  }
+}
+
     function checkLogin() {
-      const usuarioSalvo = localStorage.getItem("usuario");
       const loginBtn = document.getElementById("loginBtn");
       const userMenu = document.getElementById("userMenu");
       const userName = document.getElementById("userName");
+
+      if(!loginBtn || !userMenu || !userName) {
+        console.warn("Elementos do cabeçalho não encontrados.");
+        return;
+      }
+
+      const usuarioSalvo = lerArmazenamento("usuario");
 
       if(usuarioSalvo) {
         loginBtn.classList.add("hidden");
@@ -20,9 +43,9 @@
 
     // Fazer logout
     function logout() {
-      localStorage.removeItem("usuario");
-      localStorage.removeItem("senha");
-      localStorage.removeItem("lembrar");
+      removerArmazenamento("usuario");
+      removerArmazenamento("senha");
+      removerArmazenamento("lembrar");
       checkLogin();
     }
 

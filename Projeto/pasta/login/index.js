@@ -1,3 +1,25 @@
+function lerArmazenamento(chave) {
+  try {
+    return localStorage.getItem(chave);
+  } catch (error) {
+    console.error(`Erro ao ler ${chave} no armazenamento:`, error);
+    erroArmazenamento = true;
+    return null;
+  }
+}
+
+function salvarArmazenamento(chave, valor) {
+  try {
+    localStorage.setItem(chave, valor);
+    return true;
+  } catch (error) {
+    console.error(`Erro ao salvar ${chave} no armazenamento:`, error);
+    return false;
+  }
+}
+
+let erroArmazenamento = false;
+
 function mostrarCadastro() {
   const loginBox = document.getElementById("loginBox");
   const cadastroBox = document.getElementById("cadastroBox");
@@ -24,8 +46,13 @@ function login() {
   const usuario = document.getElementById("usuario").value;
   const senha = document.getElementById("senhaLogin").value;
   const erro = document.getElementById("erroLogin");
+  erroArmazenamento = false;
+  const usuarioSalvo = lerArmazenamento("usuario");
+  const senhaSalva = lerArmazenamento("senha");
 
-  if(usuario === localStorage.getItem("usuario") && senha === localStorage.getItem("senha")) {
+  if(erroArmazenamento) {
+    erro.textContent = "Não foi possível ler seus dados neste navegador.";
+  } else if(usuario === usuarioSalvo && senha === senhaSalva) {
     alert("Login realizado com sucesso!"); window.location.href = "../home/home.html";
   } else {
     erro.textContent = "Usuário ou senha inválidos!";
@@ -59,9 +86,14 @@ function cadastrar() {
   }
 
   erro.textContent = "";
+  const usuarioSalvo = salvarArmazenamento("usuario", nome);
+  const senhaSalva = salvarArmazenamento("senha", senha);
+  if(!usuarioSalvo || !senhaSalva) {
+    erro.textContent = "Não foi possível salvar seus dados neste navegador.";
+    return;
+  }
+
   alert("Cadastro realizado com sucesso!");
-  localStorage.setItem("usuario", nome);
-  localStorage.setItem("senha", senha);
   mostrarLogin();
 
   // ================= LOGIN =================
@@ -126,25 +158,43 @@ function cadastrar(){
 }
 async function buscarCEP() {
     const cep = document.getElementById("cepCadastro").value.replace(/\D/g, ''); // Remove caracteres não numéricos [2]
-    if (cep.length !== 8) return alert('CEP inválido'); // Validação básica [14]
+    const erro = document.getElementById("erroCadastro");
+    if (cep.length !== 8) {
+        console.error('CEP inválido:', cep);
+        erro.textContent = 'CEP inválido.';
+        return;
+    }
 
     try {
         const response= await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        if (!response.ok) throw new Error('HTTP ' + response.status + ' ao buscar o CEP');
         const data = await response.json(); // Converte resposta para JSON [1]
 
         if (data.erro) {
-            alert('CEP não encontrado');
+            console.error('CEP não encontrado:', cep);
+            erro.textContent = 'CEP não encontrado.';
             return;
         }
 
         // Preenchendo campos
-        document.getElementById('rua').value = data.logradouro;
-        document.getElementById('bairro').value = data.bairro;
-        document.getElementById('cidade').value = data.localidade;
-        document.getElementById('estado').value = data.uf;
+        preencherCampo('rua', data.logradouro);
+        preencherCampo('bairro', data.bairro);
+        preencherCampo('cidade', data.localidade);
+        preencherCampo('estado', data.uf);
+        erro.textContent = "";
     } catch (error) {
         console.error('Erro ao buscar o CEP:', error);
+        erro.textContent = 'Não foi possível buscar o CEP. Tente novamente.';
       }
+}
+
+function preencherCampo(id, valor) {
+    const campo = document.getElementById(id);
+    if (!campo) {
+        console.warn(`Campo #${id} não encontrado.`);
+        return;
+    }
+    campo.value = valor || "";
 }
     function mascaraCPF(i) {
    let v = i.value;

@@ -4,12 +4,21 @@ const sel1 = document.getElementById("sel1");
 const sel2 = document.getElementById("sel2");
 
 fetch("tvs.json")
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) throw new Error('HTTP ' + res.status + ' ao carregar tvs.json');
+    return res.json();
+  })
   .then(data => {
+    if (!Array.isArray(data)) throw new Error('Formato inválido em tvs.json');
     tvs = data;
     preencher();
   })
-  .catch(err => console.error("Erro ao carregar tvs.json:", err));
+  .catch(err => {
+    console.error("Erro ao carregar tvs.json:", err);
+    document.getElementById("resultado").innerHTML = '<div class="tie-message">Não foi possível carregar a lista de TVs. Recarregue a página e tente novamente.</div>';
+    sel1.disabled = true;
+    sel2.disabled = true;
+  });
 
 function preencher() {
   const brands = {};
@@ -61,6 +70,11 @@ function pontuar(tv) {
 }
 
 function analisarTV() {
+  if (!tvs.length) {
+    document.getElementById("resultado").innerHTML = '<div class="tie-message">A lista ainda não foi carregada. Recarregue a página.</div>';
+    return;
+  }
+
   const tv1 = tvs[sel1.value];
   const tv2 = tvs[sel2.value];
 
