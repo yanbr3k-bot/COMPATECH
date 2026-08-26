@@ -3,6 +3,10 @@ let celulares = [];
 const sel1 = document.getElementById("sel1");
 const sel2 = document.getElementById("sel2");
 
+function escapeHtml(valor) {
+  return String(valor ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
 // carregar JSON
 fetch("celulares.json")
   .then(res => res.json())
@@ -56,16 +60,16 @@ function analisar() {
 function render(cel, win) {
   return `
     <div class="card ${win ? 'winner' : ''}">
-      <h2>${cel.nome}</h2>
-      <p>⚙️ CPU: ${cel.processador}</p>
-      <p>🚀 Performance: ${cel.performance}</p>
-      <p>🧠 RAM: ${cel.ram}GB</p>
-      <p>💾 Armazenamento: ${cel.armazenamento}GB</p>
-      <p>📱 Tela: ${cel.tela}</p>
-      <p>🔋 Bateria: ${cel.bateria}mAh</p>
-      <p>⚡ Carregamento: ${cel.carregamento}</p>
-      <p>📸 Câmera: ${cel.camera_principal}</p>
-      <p>📦 Sistema: ${cel.sistema}</p>
+      <h2>${escapeHtml(cel.nome)}</h2>
+      <p>⚙️ CPU: ${escapeHtml(cel.processador)}</p>
+      <p>🚀 Performance: ${escapeHtml(cel.performance)}</p>
+      <p>🧠 RAM: ${escapeHtml(cel.ram)}GB</p>
+      <p>💾 Armazenamento: ${escapeHtml(cel.armazenamento)}GB</p>
+      <p>📱 Tela: ${escapeHtml(cel.tela)}</p>
+      <p>🔋 Bateria: ${escapeHtml(cel.bateria)}mAh</p>
+      <p>⚡ Carregamento: ${escapeHtml(cel.carregamento)}</p>
+      <p>📸 Câmera: ${escapeHtml(cel.camera_principal)}</p>
+      <p>📦 Sistema: ${escapeHtml(cel.sistema)}</p>
     </div>
   `;
 }

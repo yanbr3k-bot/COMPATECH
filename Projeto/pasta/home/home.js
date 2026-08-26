@@ -1,6 +1,6 @@
  // Verificar se o usuário está logado
     function checkLogin() {
-      const usuarioSalvo = localStorage.getItem("usuario");
+      const usuarioSalvo = localStorage.getItem("compatech_sessao");
       const loginBtn = document.getElementById("loginBtn");
       const userMenu = document.getElementById("userMenu");
       const userName = document.getElementById("userName");
@@ -20,6 +20,7 @@
 
     // Fazer logout
     function logout() {
+      localStorage.removeItem("compatech_sessao");
       localStorage.removeItem("usuario");
       localStorage.removeItem("senha");
       localStorage.removeItem("lembrar");

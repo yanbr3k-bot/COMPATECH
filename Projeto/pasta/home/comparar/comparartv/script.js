@@ -3,6 +3,10 @@
 const sel1 = document.getElementById("sel1");
 const sel2 = document.getElementById("sel2");
 
+function escapeHtml(valor) {
+  return String(valor ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
 fetch("tvs.json")
   .then(res => res.json())
   .then(data => {
@@ -77,19 +81,19 @@ function analisarTV() {
 
   resultado.innerHTML = `
     <div class="card ${!empate && p1 > p2 ? "winner" : ""}">
-      <h2>${tv1.nome}</h2>
-      <p>📺 Tamanho: ${tv1.tamanho}"</p>
-      <p>🖥️ Resolução: ${tv1.resolucao}</p>
-      <p>⚙️ Sistema: ${tv1.sistema}</p>
-      <p>💰 Preço: R$ ${tv1.preco}</p>
+      <h2>${escapeHtml(tv1.nome)}</h2>
+      <p>📺 Tamanho: ${escapeHtml(tv1.tamanho)}"</p>
+      <p>🖥️ Resolução: ${escapeHtml(tv1.resolucao)}</p>
+      <p>⚙️ Sistema: ${escapeHtml(tv1.sistema)}</p>
+      <p>💰 Preço: R$ ${escapeHtml(tv1.preco)}</p>
     </div>
 
     <div class="card ${!empate && p2 > p1 ? "winner" : ""}">
-      <h2>${tv2.nome}</h2>
-      <p>📺 Tamanho: ${tv2.tamanho}"</p>
-      <p>🖥️ Resolução: ${tv2.resolucao}</p>
-      <p>⚙️ Sistema: ${tv2.sistema}</p>
-      <p>💰 Preço: R$ ${tv2.preco}</p>
+      <h2>${escapeHtml(tv2.nome)}</h2>
+      <p>📺 Tamanho: ${escapeHtml(tv2.tamanho)}"</p>
+      <p>🖥️ Resolução: ${escapeHtml(tv2.resolucao)}</p>
+      <p>⚙️ Sistema: ${escapeHtml(tv2.sistema)}</p>
+      <p>💰 Preço: R$ ${escapeHtml(tv2.preco)}</p>
     </div>
 
     ${empate ? '<div class="tie-message">Empate! Nenhuma TV venceu.</div>' : ''}

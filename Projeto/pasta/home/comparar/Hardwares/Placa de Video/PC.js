@@ -1,5 +1,9 @@
 ﻿let gpus = [];
 
+function escapeHtml(valor) {
+  return String(valor ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
 fetch("gpus.json")
   .then(res => res.json())
   .then(data => {
@@ -65,17 +69,17 @@ function parsePrice(preco) {
 function render(gpu, win) {
   return `
     <div class="card ${win ? 'winner' : ''}">
-      <h2>${gpu.nome}</h2>
-      <p>🔥 Performance: ${gpu.performance}</p>
-      <p>🧠 VRAM: ${gpu.vram} GB</p>
-      <p>🛠️ Barramento: ${gpu.memory_bus} bits</p>
-      <p>💻 Clock: ${gpu.clock} MHz</p>
-      <p>🧮 Cores: ${gpu.cores}</p>
-      <p>🏗️ Arquitetura: ${gpu.arquitetura}</p>
-      <p>✨ Ray Tracing: ${gpu.ray_tracing ? 'Sim' : 'Não'}</p>
-      <p>⚡ TDP: ${gpu.tdp} W</p>
-      <p>💾 Tipo: ${gpu.tipo}</p>
-      <p>💰 Preço: ${gpu.preco}</p>
+      <h2>${escapeHtml(gpu.nome)}</h2>
+      <p>🔥 Performance: ${escapeHtml(gpu.performance)}</p>
+      <p>🧠 VRAM: ${escapeHtml(gpu.vram)} GB</p>
+      <p>🛠️ Barramento: ${escapeHtml(gpu.memory_bus)} bits</p>
+      <p>💻 Clock: ${escapeHtml(gpu.clock)} MHz</p>
+      <p>🧮 Cores: ${escapeHtml(gpu.cores)}</p>
+      <p>🏗️ Arquitetura: ${escapeHtml(gpu.arquitetura)}</p>
+      <p>✨ Ray Tracing: ${escapeHtml(gpu.ray_tracing ? 'Sim' : 'Não')}</p>
+      <p>⚡ TDP: ${escapeHtml(gpu.tdp)} W</p>
+      <p>💾 Tipo: ${escapeHtml(gpu.tipo)}</p>
+      <p>💰 Preço: ${escapeHtml(gpu.preco)}</p>
     </div>
   `;
 }

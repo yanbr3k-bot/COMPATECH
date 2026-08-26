@@ -1,5 +1,9 @@
 let mbs = [];
 
+function escapeHtml(valor) {
+  return String(valor ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
 fetch("mbs.json")
   .then(res => res.json())
   .then(data => {
@@ -64,17 +68,17 @@ function parsePrice(preco) {
 function render(mb, win) {
   return `
     <div class="card ${win ? 'winner' : ''}">
-      <h2>${mb.nome}</h2>
-      <p>🔥 Performance: ${mb.performance}</p>
-      <p>🧩 Soquete: ${mb.socket}</p>
-      <p>🏷️ Chipset: ${mb.chipset}</p>
-      <p>🧠 RAM máxima: ${mb.max_ram} GB</p>
-      <p>🖧 Slots PCIe: ${mb.slots}</p>
-      <p>💾 M.2 slots: ${mb.m2_slots}</p>
-      <p>🔌 Portas: ${mb.ports}</p>
-      <p>📶 Wi-Fi integrado: ${mb.wifi ? 'Sim' : 'Não'}</p>
-      <p>📏 Formato: ${mb.formato}</p>
-      <p>💰 Preço: ${mb.preco}</p>
+      <h2>${escapeHtml(mb.nome)}</h2>
+      <p>🔥 Performance: ${escapeHtml(mb.performance)}</p>
+      <p>🧩 Soquete: ${escapeHtml(mb.socket)}</p>
+      <p>🏷️ Chipset: ${escapeHtml(mb.chipset)}</p>
+      <p>🧠 RAM máxima: ${escapeHtml(mb.max_ram)} GB</p>
+      <p>🖧 Slots PCIe: ${escapeHtml(mb.slots)}</p>
+      <p>💾 M.2 slots: ${escapeHtml(mb.m2_slots)}</p>
+      <p>🔌 Portas: ${escapeHtml(mb.ports)}</p>
+      <p>📶 Wi-Fi integrado: ${escapeHtml(mb.wifi ? 'Sim' : 'Não')}</p>
+      <p>📏 Formato: ${escapeHtml(mb.formato)}</p>
+      <p>💰 Preço: ${escapeHtml(mb.preco)}</p>
     </div>
   `;
 }
