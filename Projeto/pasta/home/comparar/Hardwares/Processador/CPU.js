@@ -1,5 +1,9 @@
 let cpus = [];
 
+function escapeHtml(valor) {
+  return String(valor ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
 fetch("cpus.json")
   .then(res => res.json())
   .then(data => {
@@ -65,17 +69,17 @@ function parsePrice(preco) {
 function render(cpu, win) {
   return `
     <div class="card ${win ? 'winner' : ''}">
-      <h2>${cpu.nome}</h2>
-      <p>🔥 Performance: ${cpu.performance}</p>
-      <p>🧠 Cores: ${cpu.cores}</p>
-      <p>🧮 Threads: ${cpu.threads}</p>
-      <p>💻 Clock: ${cpu.clock} MHz</p>
-      <p>🚀 Boost: ${cpu.boost} MHz</p>
-      <p>🧪 Cache: ${cpu.cache} MB</p>
-      <p>🏗️ Arquitetura: ${cpu.arquitetura}</p>
-      <p>⚡ TDP: ${cpu.tdp} W</p>
-      <p>💾 Tipo: ${cpu.tipo}</p>
-      <p>💰 Preço: ${cpu.preco}</p>
+      <h2>${escapeHtml(cpu.nome)}</h2>
+      <p>🔥 Performance: ${escapeHtml(cpu.performance)}</p>
+      <p>🧠 Cores: ${escapeHtml(cpu.cores)}</p>
+      <p>🧮 Threads: ${escapeHtml(cpu.threads)}</p>
+      <p>💻 Clock: ${escapeHtml(cpu.clock)} MHz</p>
+      <p>🚀 Boost: ${escapeHtml(cpu.boost)} MHz</p>
+      <p>🧪 Cache: ${escapeHtml(cpu.cache)} MB</p>
+      <p>🏗️ Arquitetura: ${escapeHtml(cpu.arquitetura)}</p>
+      <p>⚡ TDP: ${escapeHtml(cpu.tdp)} W</p>
+      <p>💾 Tipo: ${escapeHtml(cpu.tipo)}</p>
+      <p>💰 Preço: ${escapeHtml(cpu.preco)}</p>
     </div>
   `;
 }
