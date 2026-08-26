@@ -16,6 +16,16 @@ Funcionalidades
 * Navegação entre categorias
 * Interface responsiva
 
+Testes
+
+Os testes unitarios usam Vitest com ambiente jsdom.
+
+```
+npm install
+npm test           # executa os testes
+npm run coverage   # executa os testes com relatorio de cobertura
+```
+
 Autor
 
 Yanbr3k-bot
