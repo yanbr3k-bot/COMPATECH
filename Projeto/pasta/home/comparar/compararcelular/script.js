@@ -5,10 +5,20 @@ const sel2 = document.getElementById("sel2");
 
 // carregar JSON
 fetch("celulares.json")
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) throw new Error('HTTP ' + res.status + ' ao carregar celulares.json');
+    return res.json();
+  })
   .then(data => {
+    if (!Array.isArray(data)) throw new Error('Formato inválido em celulares.json');
     celulares = data;
     preencher();
+  })
+  .catch(err => {
+    console.error("Erro ao carregar celulares.json:", err);
+    document.getElementById("resultado").innerHTML = '<div class="tie-message">Não foi possível carregar a lista de celulares. Recarregue a página e tente novamente.</div>';
+    sel1.disabled = true;
+    sel2.disabled = true;
   });
 
 function preencher() {
@@ -37,8 +47,18 @@ function preencher() {
 }
 
 function analisar() {
+  if (!celulares.length) {
+    document.getElementById("resultado").innerHTML = '<div class="tie-message">A lista ainda não foi carregada. Recarregue a página.</div>';
+    return;
+  }
+
   const c1 = celulares.find(c => c.id === sel1.value);
   const c2 = celulares.find(c => c.id === sel2.value);
+
+  if (!c1 || !c2) {
+    document.getElementById("resultado").innerHTML = '<div class="tie-message">Selecione dois celulares.</div>';
+    return;
+  }
 
   let v1 = 0, v2 = 0;
 

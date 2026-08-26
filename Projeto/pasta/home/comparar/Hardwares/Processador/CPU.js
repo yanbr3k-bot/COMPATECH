@@ -1,12 +1,21 @@
 let cpus = [];
 
 fetch("cpus.json")
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) throw new Error('HTTP ' + res.status + ' ao carregar cpus.json');
+    return res.json();
+  })
   .then(data => {
+    if (!Array.isArray(data)) throw new Error('Formato inválido em cpus.json');
     cpus = data;
     preencher();
   })
-  .catch(err => console.error("Erro ao carregar cpus.json:", err));
+  .catch(err => {
+    console.error("Erro ao carregar cpus.json:", err);
+    document.getElementById("resultado").innerHTML = '<div class="tie-message">Não foi possível carregar a lista de processadores. Recarregue a página e tente novamente.</div>';
+    document.getElementById("sel1").disabled = true;
+    document.getElementById("sel2").disabled = true;
+  });
 
 function preencher() {
   const s1 = document.getElementById("sel1");
@@ -38,8 +47,19 @@ function preencher() {
 function analisar() {
   const s1 = document.getElementById("sel1");
   const s2 = document.getElementById("sel2");
+
+  if (!cpus.length) {
+    document.getElementById("resultado").innerHTML = '<div class="tie-message">A lista ainda não foi carregada. Recarregue a página.</div>';
+    return;
+  }
+
   const c1 = cpus.find(c => c.id === s1.value);
   const c2 = cpus.find(c => c.id === s2.value);
+
+  if (!c1 || !c2) {
+    document.getElementById("resultado").innerHTML = '<div class="tie-message">Selecione dois processadores.</div>';
+    return;
+  }
 
   let v1 = 0, v2 = 0;
 
@@ -50,7 +70,14 @@ function analisar() {
   if (c1.boost > c2.boost) v1++; else if (c1.boost < c2.boost) v2++;
   if (c1.cache > c2.cache) v1++; else if (c1.cache < c2.cache) v2++;
   if (c1.tdp < c2.tdp) v1++; else if (c1.tdp > c2.tdp) v2++;
-  if (parsePrice(c1.preco) < parsePrice(c2.preco)) v1++; else if (parsePrice(c1.preco) > parsePrice(c2.preco)) v2++;
+  const preco1 = parsePrice(c1.preco);
+  const preco2 = parsePrice(c2.preco);
+  if (preco1 !== null && preco2 !== null) {
+    if (preco1 < preco2) v1++; else if (preco1 > preco2) v2++;
+  } else {
+    if (preco1 === null) console.warn(`Preço inválido para ${c1.nome}.`);
+    if (preco2 === null) console.warn(`Preço inválido para ${c2.nome}.`);
+  }
 
   const empate = v1 === v2;
   document.getElementById("resultado").innerHTML =
@@ -59,7 +86,11 @@ function analisar() {
 }
 
 function parsePrice(preco) {
-  return Number(preco.replace(/[R$\.\s]/g, ""));
+  if (typeof preco === "number") return Number.isFinite(preco) ? preco : null;
+  const valor = String(preco ?? "").replace(/\D/g, "");
+  if (!valor) return null;
+  const numero = Number(valor);
+  return Number.isFinite(numero) ? numero : null;
 }
 
 function render(cpu, win) {
