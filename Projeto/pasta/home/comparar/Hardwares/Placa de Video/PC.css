@@ -1,2 +1,2 @@
 @import url("../../../../shared/compare.css");
-:root { --page-bg: url("../home/comparar/assets/placas.de.video.png"); }
+body { background-image: url("../../assets/placas.de.video.png"); }

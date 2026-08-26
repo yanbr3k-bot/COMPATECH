@@ -1,2 +1,2 @@
 @import url("../../../shared/compare.css");
-:root { --page-bg: url("../home/comparar/assets/bg-tech.png"); }
+body { background-image: url("../assets/bg-tech.png"); }

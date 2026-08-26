@@ -9,7 +9,7 @@
 /* BODY */
 body {
   height: 100vh;
-  background: var(--page-bg) no-repeat center center;
+  background: no-repeat center center;
   background-size: cover;
   color: white;
   overflow-x: hidden;
